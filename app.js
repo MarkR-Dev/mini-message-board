@@ -2,11 +2,10 @@ const express = require("express");
 
 // Router groups
 const indexRouter = require("./routes/indexRouter");
-const messageRouter = require("./routes/messageRouter");
 
+// Setup express server instance
 const app = express();
 
-app.use("/new", messageRouter);
 app.use("/", indexRouter);
 
 // Matches paths that don't exists to produce a 404
@@ -20,7 +19,7 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message);
 });
 
-// Setup express server instance to listen for requests
+// Listen for requests
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   // This is important to display errors rather than silently failing

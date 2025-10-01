@@ -1,10 +1,13 @@
 const express = require("express");
 
+// Router groups
+const indexRouter = require("./routes/indexRouter");
+const messageRouter = require("./routes/messageRouter");
+
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Index route");
-});
+app.use("/new", messageRouter);
+app.use("/", indexRouter);
 
 // Matches paths that don't exists to produce a 404
 app.use("/{*splat}", (req, res) => {

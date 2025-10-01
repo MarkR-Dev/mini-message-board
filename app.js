@@ -1,11 +1,16 @@
 const express = require("express");
+const path = require("path");
 
-// Router groups
 const indexRouter = require("./routes/indexRouter");
 
 // Setup express server instance
 const app = express();
 
+// Configure ejs to work with react
+app.set("views", path.join(__dirname, "public"));
+app.set("view engine", "ejs");
+
+// Routes
 app.use("/", indexRouter);
 
 // Matches paths that don't exists to produce a 404

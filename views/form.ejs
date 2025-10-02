@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    123
+    <main>
+      <h1>New Message</h1>
+
+      <a href="/" class="link">Messages</a>
+
+      <form method="POST" action="/new">
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" />
+        </div>
+
+        <div>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="8"></textarea>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </main>
   </body>
 </html>

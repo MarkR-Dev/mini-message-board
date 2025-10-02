@@ -26,4 +26,9 @@ indexRouter.get("/new", (req, res) => {
   res.render("form", { title: "Mini Message Board | New" });
 });
 
+indexRouter.post("/new", (req, res) => {
+  // todo
+  res.send("/new");
+});
+
 module.exports = indexRouter;

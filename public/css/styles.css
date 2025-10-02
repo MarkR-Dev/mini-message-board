@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  background-color: darkslategrey;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 10px 0;
+  color: whitesmoke;
+}
+
+.messages-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  color: darkslategrey;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user {
+  font-size: 1.75rem;
+}
+
+.text {
+  font-size: 1.25rem;
+}
+
+.added {
+  font-style: italic;
+  color: #555353;
+}

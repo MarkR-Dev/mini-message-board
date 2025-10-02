@@ -7,8 +7,11 @@ const indexRouter = require("./routes/indexRouter");
 const app = express();
 
 // Configure ejs to work with react
-app.set("views", path.join(__dirname, "public"));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+// Serving static files
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/", indexRouter);

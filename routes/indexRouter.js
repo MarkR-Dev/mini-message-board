@@ -16,11 +16,14 @@ const messages = [
 ];
 
 indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Message Board", messages: messages });
+  res.render("index", {
+    title: "Mini Message Board | Home",
+    messages: messages,
+  });
 });
 
 indexRouter.get("/new", (req, res) => {
-  res.send("/new GET");
+  res.render("form", { title: "Mini Message Board | New" });
 });
 
 module.exports = indexRouter;

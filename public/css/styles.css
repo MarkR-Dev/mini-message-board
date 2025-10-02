@@ -1,3 +1,8 @@
+:root {
+  --theme: darkslategrey;
+  --light: whitesmoke;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,23 +11,42 @@
 
 body {
   font-family: monospace;
-  background-color: darkslategrey;
+  background-color: var(--theme);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 h1 {
   font-size: 3rem;
-  text-align: center;
   margin: 10px 0;
-  color: whitesmoke;
+  color: var(--light);
+}
+
+.new-link {
+  color: var(--light);
+  text-decoration: none;
+  border: 3px solid var(--light);
+  padding: 10px;
+  font-size: 1rem;
+  width: max-content;
+  font-weight: bold;
+}
+
+.new-link:hover {
+  color: var(--theme);
+  background-color: var(--light);
 }
 
 .messages-container {
-  margin: 0 auto;
-  margin-top: 50px;
   max-width: 600px;
   padding: 20px;
   border-radius: 10px;
-  color: darkslategrey;
+  color: var(--theme);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,7 +56,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: whitesmoke;
+  background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
 }

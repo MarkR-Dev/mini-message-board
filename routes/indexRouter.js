@@ -27,8 +27,15 @@ indexRouter.get("/new", (req, res) => {
 });
 
 indexRouter.post("/new", (req, res) => {
-  // todo
-  res.send("/new");
+  const { message, author } = req.body;
+
+  messages.push({
+    text: message,
+    user: author,
+    added: new Date(),
+  });
+
+  res.redirect("/");
 });
 
 module.exports = indexRouter;

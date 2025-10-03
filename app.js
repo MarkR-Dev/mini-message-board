@@ -13,6 +13,9 @@ app.set("view engine", "ejs");
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
+// Parses form data into req.body
+app.use(express.urlencoded({ extended: true }));
+
 // Routes
 app.use("/", indexRouter);
 

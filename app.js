@@ -3,7 +3,6 @@ const path = require("path");
 
 const indexRouter = require("./routes/indexRouter");
 
-// Setup express server instance
 const app = express();
 
 // Configure ejs to work with react
@@ -16,10 +15,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Parses form data into req.body
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
 app.use("/", indexRouter);
 
-// Matches paths that don't exists to produce a 404
+// Matches paths that don't exists
 app.use("/{*splat}", (req, res) => {
   res.status(404).send("404");
 });
@@ -30,7 +28,6 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message);
 });
 
-// Listen for requests
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   // This is important to display errors rather than silently failing

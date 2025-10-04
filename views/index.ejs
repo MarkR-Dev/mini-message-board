@@ -13,9 +13,12 @@
       <a href="/new" class="link">New Message</a>
 
       <div class="messages-container">
-        <% messages.forEach(message => { %>
+        <% messages.forEach((message, index) => { %>
         <div class="message">
-          <h2 class="user"><%= message.user %></h2>
+          <div class="first-line">
+            <h2 class="user"><%= message.user %></h2>
+            <a href="/messages/<%= index + 1 %>" class="open">Open</a>
+          </div>
           <h3 class="text"><%= message.text %></h3>
           <h3 class="added"><%= message.added %></h3>
         </div>

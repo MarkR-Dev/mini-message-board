@@ -19,6 +19,8 @@ main {
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  color: var(--theme);
+  padding: 0px 20px;
 }
 
 h1 {
@@ -36,6 +38,7 @@ h1 {
   width: 150px;
   font-weight: bold;
   text-align: center;
+  display: inline-block;
 }
 
 .link:hover {
@@ -44,9 +47,7 @@ h1 {
 }
 
 .messages-container {
-  max-width: 500px;
   border-radius: 10px;
-  color: var(--theme);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -54,12 +55,35 @@ h1 {
 }
 
 .message {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
+}
+
+.first-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.open {
+  background-color: transparent;
+  border: 2px solid var(--theme);
+  padding: 5px 10px;
+  font-family: monospace;
+  color: var(--theme);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.open:hover {
+  color: var(--light);
+  background-color: var(--theme);
 }
 
 .user {
@@ -111,7 +135,7 @@ textarea {
   resize: vertical;
 }
 
-button {
+.submit {
   font-family: monospace;
   padding: 14px;
   background-color: var(--theme);
@@ -123,7 +147,7 @@ button {
   border: 2px solid var(--theme);
 }
 
-button:hover {
+.submit:hover {
   background-color: lightgreen;
   border-color: lightgreen;
   color: var(--theme);

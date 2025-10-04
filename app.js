@@ -19,13 +19,21 @@ app.use("/", indexRouter);
 
 // Matches paths that don't exists
 app.use("/{*splat}", (req, res) => {
-  res.status(404).send("404");
+  res
+    .status(404)
+    .render("error", { title: "Mini Message Board | Error", statusCode: 404 });
 });
 
 // Error handler middleware to catch errors throughout the app or previous middleware function if using next(err)
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(err.statusCode || 500).send(err.message);
+  const statusCode = err.statusCode || 500;
+  res
+    .status(statusCode)
+    .render("error", {
+      title: "Mini Message Board | Error",
+      statusCode: statusCode,
+    });
 });
 
 const PORT = process.env.PORT || 3000;

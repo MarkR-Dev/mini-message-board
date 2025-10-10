@@ -5,7 +5,7 @@ const indexRouter = require("./routes/indexRouter");
 
 const app = express();
 
-// Configure ejs to work with react
+// Configure ejs to work with express
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -28,12 +28,10 @@ app.use("/{*splat}", (req, res) => {
 app.use((err, req, res, next) => {
   console.error(err);
   const statusCode = err.statusCode || 500;
-  res
-    .status(statusCode)
-    .render("error", {
-      title: "Mini Message Board | Error",
-      statusCode: statusCode,
-    });
+  res.status(statusCode).render("error", {
+    title: "Mini Message Board | Error",
+    statusCode: statusCode,
+  });
 });
 
 const PORT = process.env.PORT || 3000;

@@ -60,7 +60,7 @@ h1 {
   flex-direction: column;
   gap: 10px;
   background-color: var(--light);
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -70,7 +70,8 @@ h1 {
   align-items: center;
 }
 
-.open {
+.open,
+.delete {
   background-color: transparent;
   border: 2px solid var(--theme);
   padding: 5px 10px;
@@ -84,6 +85,23 @@ h1 {
 .open:hover {
   color: var(--light);
   background-color: var(--theme);
+}
+
+#delete-form {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: max-content;
+}
+
+.delete {
+  color: red;
+  border: 2px solid red;
+}
+
+.delete:hover {
+  color: var(--light);
+  background-color: red;
 }
 
 .user {
@@ -151,4 +169,20 @@ textarea {
   background-color: lightgreen;
   border-color: lightgreen;
   color: var(--theme);
+}
+
+.form-errors {
+  color: red;
+  background-color: var(--light);
+  padding: 20px;
+  width: 500px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.form-errors ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
 }

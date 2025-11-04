@@ -2,12 +2,17 @@ const { Router } = require("express");
 
 const indexRouter = Router();
 
-const messages = require("../model/messages");
-const { getMessage, createMessage } = require("../controllers/indexController");
+const {
+  getMessage,
+  createMessage,
+  deleteMessage,
+  messageFormGet,
+} = require("../controllers/indexController");
 
-const CustomNotFoundError = require("../errors/CustomNotFoundError");
+const db = require("../db/queries");
 
-indexRouter.get("/", (req, res) => {
+indexRouter.get("/", async (req, res) => {
+  const messages = await db.getAllMessages();
   res.render("index", {
     title: "Mini Message Board | Home",
     messages: messages,
@@ -16,9 +21,9 @@ indexRouter.get("/", (req, res) => {
 
 indexRouter.get("/messages/:messageId", getMessage);
 
-indexRouter.get("/new", (req, res) => {
-  res.render("form", { title: "Mini Message Board | New" });
-});
+indexRouter.post("/messages/:messageId/delete", deleteMessage);
+
+indexRouter.get("/new", messageFormGet);
 
 indexRouter.post("/new", createMessage);
 

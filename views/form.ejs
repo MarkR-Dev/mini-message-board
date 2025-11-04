@@ -12,15 +12,24 @@
 
       <a href="/" class="link">Messages</a>
 
+      <%- include("partials/errors.ejs") %>
+
       <form method="POST" action="/new">
         <div>
           <label for="author">Author:</label>
-          <input type="text" id="author" name="author" />
+          <input
+            type="text"
+            id="author"
+            name="author"
+            value="<%= prevData.author %>"
+          />
         </div>
 
         <div>
           <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="8"></textarea>
+          <textarea id="message" name="message" rows="8">
+<%= prevData.text %></textarea
+          >
         </div>
 
         <button class="submit">Submit</button>

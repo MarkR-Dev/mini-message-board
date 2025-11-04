@@ -16,9 +16,18 @@
       </div>
 
       <div class="message">
-        <h2 class="user"><%= message.user %></h2>
-        <h3 class="text"><%= message.text %></h3>
-        <h3 class="added"><%= message.added %></h3>
+        <div class="first-line">
+          <h2 class="user"><%= message.username %></h2>
+          <form
+            action="/messages/<%= message.id %>/delete"
+            method="POST"
+            id="delete-form"
+          >
+            <button class="delete">Delete</button>
+          </form>
+        </div>
+        <h3 class="text"><%= message.message %></h3>
+        <h3 class="added"><%= message.date_posted %></h3>
       </div>
     </main>
   </body>
